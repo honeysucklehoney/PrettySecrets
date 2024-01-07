@@ -46,7 +46,7 @@
     <div id="container">
         <img src="prettysecrets.png" alt="Pretty_Secrets">
         <div id="secondImageContainer">
-            <img id="secondImage" src="ps_explained.jpg" alt="who we are">
+            <img id="secondImage" src="ps_explained.jpg" alt="Explained Image">
         </div>
     </div>
 
@@ -64,14 +64,10 @@
                 document.getElementById("secondImageContainer").style.display = "none";
             }
 
-            lastScrollTop = st <= 0 ? 0 : st;
-        });
-
-                // Test to log messages to the console
-        console.log("Page loaded!");
-
-        window.addEventListener("scroll", function() {
+            // Log a message to test scrolling
             console.log("Scrolled!");
+
+            lastScrollTop = st;
         });
     </script>
 </body>
