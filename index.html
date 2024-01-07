@@ -26,6 +26,13 @@
             width: 100%;
             height: auto;
             display: block;
+            transition: opacity 1s ease; /* Transition for opacity change */
+        }
+
+        #mainImage {
+            /* Rotate 90 degrees for mobile */
+            transform: rotate(90deg);
+            transform-origin: 0 0;
         }
 
         #secondImageContainer {
@@ -49,8 +56,9 @@
                 max-width: 100%; /* Adjust max-width for better mobile display */
             }
 
-            #secondImage {
-                max-width: 100%; /* Adjust max-width for better mobile display */
+            #mainImage {
+                /* Reset rotation for mobile */
+                transform: none;
             }
         }
     </style>
@@ -65,11 +73,19 @@
 
     <script>
         $(document).ready(function() {
+            // Use setInterval to change opacity every 3 seconds
+            setInterval(function() {
+                $("#mainImage").fadeTo(1000, 1 - $("#mainImage").css('opacity'));
+            }, 3000);
+
             // Use jQuery for the click event
-            $("#mainImage").click(function() {
+            $("#container").click(function() {
+                // Toggle visibility of both images
+                $("#mainImage").toggle();
                 $("#secondImageContainer").toggle();
             });
         });
     </script>
 </body>
 </html>
+
