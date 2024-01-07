@@ -66,6 +66,13 @@
 
             lastScrollTop = st <= 0 ? 0 : st;
         });
+
+                // Test to log messages to the console
+        console.log("Page loaded!");
+
+        window.addEventListener("scroll", function() {
+            console.log("Scrolled!");
+        });
     </script>
 </body>
 </html>
