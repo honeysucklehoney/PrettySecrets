@@ -26,20 +26,27 @@
             display: block;
         }
 
-        #textContainer {
-             position: fixed;
+        #secondImageContainer {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            display: none;
+        }
+
+        #secondImage {
+            width: 100%;
+            height: auto;
+            display: block;
         }
     </style>
 </head>
 <body>
     <div id="container">
-       <a href="mailto:sarah@sarahholloway.net"> <img src="prettysecrets.png" alt="Pretty_Secrets"> </a>
-        <div id="textContainer">
-           <img src="ps_explained.png" alt="who we are">
+        <img src="prettysecrets.png" alt="Pretty_Secrets">
+        <div id="secondImageContainer">
+            <img id="secondImage" src="ps_explained.png" alt="who we are">
         </div>
     </div>
 
@@ -51,10 +58,10 @@
 
             if (st > lastScrollTop) {
                 // Scrolling down
-                document.getElementById("textContainer").style.display = "none";
+                document.getElementById("secondImageContainer").style.display = "block";
             } else {
                 // Scrolling up
-                document.getElementById("textContainer").style.display = "block";
+                document.getElementById("secondImageContainer").style.display = "none";
             }
 
             lastScrollTop = st <= 0 ? 0 : st;
