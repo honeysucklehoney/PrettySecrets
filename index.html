@@ -29,9 +29,16 @@
         }
 
         #mainImage {
-            /* Rotate 90 degrees for mobile */
-            transform: rotate(90deg);
-            transform-origin: 0 0;
+            animation: pulse 1.5s infinite alternate; /* Use the "pulse" animation */
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.8;
+            }
         }
 
         #secondImageContainer {
@@ -43,28 +50,17 @@
             display: none;
         }
 
-        #secondImage {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
         /* Media query for mobile devices */
         @media only screen and (max-width: 600px) {
             img {
                 max-width: 100%; /* Adjust max-width for better mobile display */
             }
-
-            #mainImage {
-                /* Reset rotation for mobile */
-                transform: none;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Audio element with autoplay for "beautiful.m4a" file -->
-    <audio autoplay>
+    <!-- Audio element with controls for "beautiful.m4a" file -->
+    <audio id="audio" controls>
         <source src="beautiful.m4a" type="audio/mp4">
         Your browser does not support the audio element.
     </audio>
@@ -83,6 +79,14 @@
                 // Toggle visibility of both images
                 $("#mainImage").toggle();
                 $("#secondImageContainer").toggle();
+
+                // Play/pause the audio based on image visibility
+                var audio = document.getElementById("audio");
+                if ($("#mainImage").is(":visible")) {
+                    audio.pause();
+                } else {
+                    audio.play();
+                }
             });
         });
     </script>
