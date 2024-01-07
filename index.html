@@ -57,7 +57,7 @@
 </head>
 <body>
     <div id="container">
-        <img src="prettysecrets.png" alt="Pretty_Secrets">
+        <img id="mainImage" src="prettysecrets.png" alt="Pretty_Secrets">
         <div id="secondImageContainer">
             <img id="secondImage" src="ps_explained.jpg" alt="Explained Image">
         </div>
@@ -65,24 +65,9 @@
 
     <script>
         $(document).ready(function() {
-            var lastScrollTop = 0;
-
-            // Use jQuery for the scroll event
-            $(window).scroll(function() {
-                var st = $(this).scrollTop();
-
-                if (st > lastScrollTop) {
-                    // Scrolling down
-                    $("#secondImageContainer").show();
-                } else {
-                    // Scrolling up
-                    $("#secondImageContainer").hide();
-                }
-
-                // Log a message to test scrolling
-                console.log("Scrolled!");
-
-                lastScrollTop = st;
+            // Use jQuery for the click event
+            $("#mainImage").click(function() {
+                $("#secondImageContainer").toggle();
             });
         });
     </script>
