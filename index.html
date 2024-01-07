@@ -64,6 +64,12 @@
     </style>
 </head>
 <body>
+    <!-- Audio element with autoplay for "beautiful.m4a" file -->
+    <audio autoplay>
+        <source src="beautiful.m4a" type="audio/mp4">
+        Your browser does not support the audio element.
+    </audio>
+
     <div id="container">
         <img id="mainImage" src="prettysecrets.png" alt="Pretty_Secrets">
         <div id="secondImageContainer">
@@ -73,10 +79,10 @@
 
     <script>
         $(document).ready(function() {
-            // Use setInterval to change opacity every 3 seconds
+            // Use setInterval to change opacity every 1 second
             setInterval(function() {
                 $("#mainImage").fadeTo(1000, 1 - $("#mainImage").css('opacity'));
-            }, 3000);
+            }, 1000);
 
             // Use jQuery for the click event
             $("#container").click(function() {
