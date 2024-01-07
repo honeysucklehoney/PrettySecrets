@@ -26,7 +26,6 @@
             width: 100%;
             height: auto;
             display: block;
-            transition: opacity 1s ease; /* Transition for opacity change */
         }
 
         #mainImage {
@@ -79,11 +78,6 @@
 
     <script>
         $(document).ready(function() {
-            // Use setInterval to change opacity every 1 second
-            setInterval(function() {
-                $("#mainImage").fadeTo(1000, 1 - $("#mainImage").css('opacity'));
-            }, 1000);
-
             // Use jQuery for the click event
             $("#container").click(function() {
                 // Toggle visibility of both images
