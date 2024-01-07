@@ -12,28 +12,57 @@
             background-color: #ffffff; /* White background */
         }
 
+        #container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
         img {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        a {
-            display: block;
+        #textContainer {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            display: none;
             color: #000000; /* Black text color */
             font-size: 24px;
-            text-decoration: none;
             font-weight: bold;
+            text-align: center;
         }
     </style>
 </head>
-<body> 
-    <a href="mailto:sarah@sarahholloway.net">
-        <img src="prettysecrets.png" alt="Pretty_Secrets">
-    </a>
+<body>
+    <div id="container">
+       <a href="mailto:sarah@sarahholloway.net"> <img src="prettysecrets.png" alt="Pretty_Secrets"> </a>
+        <div id="textContainer">
+           <img src="ps_explained.png" alt="who we are">
+        </div>
+    </div>
+
+    <script>
+        var lastScrollTop = 0;
+
+        window.addEventListener("scroll", function() {
+            var st = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (st > lastScrollTop) {
+                // Scrolling down
+                document.getElementById("textContainer").style.display = "none";
+            } else {
+                // Scrolling up
+                document.getElementById("textContainer").style.display = "block";
+            }
+
+            lastScrollTop = st <= 0 ? 0 : st;
+        });
+    </script>
 </body>
 </html>
