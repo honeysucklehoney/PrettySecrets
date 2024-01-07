@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pretty Secrets</title>
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <style>
         body {
             margin: 0;
@@ -51,24 +53,28 @@
     </div>
 
     <script>
-        var lastScrollTop = 0;
+        $(document).ready(function() {
+            var lastScrollTop = 0;
 
-        window.addEventListener("scroll", function() {
-            var st = window.pageYOffset || document.documentElement.scrollTop;
+            // Use jQuery for the scroll event
+            $(window).scroll(function() {
+                var st = $(this).scrollTop();
 
-            if (st > lastScrollTop) {
-                // Scrolling down
-                document.getElementById("secondImageContainer").style.display = "block";
-            } else {
-                // Scrolling up
-                document.getElementById("secondImageContainer").style.display = "none";
-            }
+                if (st > lastScrollTop) {
+                    // Scrolling down
+                    $("#secondImageContainer").show();
+                } else {
+                    // Scrolling up
+                    $("#secondImageContainer").hide();
+                }
 
-            // Log a message to test scrolling
-            console.log("Scrolled!");
+                // Log a message to test scrolling
+                console.log("Scrolled!");
 
-            lastScrollTop = st;
+                lastScrollTop = st;
+            });
         });
     </script>
 </body>
 </html>
+
